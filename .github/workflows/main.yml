@@ -44,21 +44,21 @@ jobs:
      
     - name: Start Airflow Webserver
       run: |
-        source airflow_env/bin/activate
+        source venv/bin/activate
         airflow webserver -p 8081 &
         sleep 10 # Allow the webserver to start properly
     - name: Start Airflow Scheduler
       run: |
-        source airflow_env/bin/activate
+        source venv/bin/activate
         airflow scheduler &
         sleep 30 # Increased sleep to ensure the scheduler has enough time to load DAGs
     - name: List all available DAGs
       run: |
-        source airflow_env/bin/activat
+        source venv/bin/activate
         airflow dags list
     - name: Trigger Airflow DAG (iris_mlflow_dag)
       run: |
-        source airflow_env/bin/activat
+        source venv/bin/activate
         airflow dags trigger iris_mlflow_dag
     - name: Collect and store logs
       run: |
