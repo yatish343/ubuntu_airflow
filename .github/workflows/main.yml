@@ -63,7 +63,7 @@ jobs:
     - name: Collect and store logs
       run: |
         mkdir -p logs
-        cp $AIRFLOW_HOME/logs/* logs/
+        cp -r $AIRFLOW_HOME/logs/* logs/
       if: failure()
     - name: Upload logs as artifact
       uses: actions/upload-artifact@v3
